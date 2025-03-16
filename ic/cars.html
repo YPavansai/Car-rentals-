@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Listings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Available Cars</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <section class="car-details">
+        <div class="car">
+            <img src="assets/car1.jpg" alt="Car 1" width="150" height="200">
+            <h3>Toyota Camry</h3>
+            <p>₹10000/day</p>
+            <a href="car-details.html">View Details</a>    
+        </div>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car2.jpg" alt="Car 2" width="150" height="200">
+            <h3>BMW X5</h3>
+            <p>₹15000/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car3.jpg" alt="Car 3">
+            <h3>Mercedes Benz</h3>
+            <p>₹20000/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car4.jpg" alt="Car 4">
+            <h3>Hyundai Creta</h3>
+            <p>₹6500/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car5.jpg" alt="Car 5" width="150" height="200">
+            <h3>Baleno</h3>
+            <p>₹5000/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car6.jpg" alt="Car 6">
+            <h3>Hyundai i20</h3>
+            <p>₹6000/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car7.jpg" alt="Car 7"> 
+            <h3>Maruti Suzuki Swift</h3>
+            <p>₹4500/day</p>
+            <a href="car-details.html">View Details</a>
+         </div>
+         </section>
+        <section class="car-details">
+        <div class="car">
+            <img src="assets/car8.jpg" alt="Car 8"> 
+            <h3>Toyota Fortuner</h3>
+            <p>₹9000/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">   
+            <img src="assets/car9.jpg" alt="Car 9">
+            <h3>Hyundai Venue</h3> 
+            <p>₹6000/day</p>    
+            <a href="car-details.html">View Details</a>
+        </div>
+        </section>
+        <section class="car-details">
+        <div class="car">  
+            <img src="assets/car10.jpg" alt="Car 10">
+            <h3>Toyota Innova</h3>
+            <p>₹8000/day</p>
+            <a href="car-details.html">View Details</a>
+        </div>
+    </section>
+    <script>
+        function viewDetails(name, price, fuel, seats, image) {
+    const carData = { name, price, fuel, seats, image };
+    localStorage.setItem("selectedCar", JSON.stringify(carData));  // Store in localStorage
+    
+    console.log("Stored Car Data:", carData); // Debugging: Check if data is stored
+
+    window.location.href = "car-details.html";  // Redirect to details page
+}
+
+    </script>
+    
+</body>
+</html>

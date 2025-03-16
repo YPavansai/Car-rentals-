@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Car Details</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cars.html">Garage</a>
+        </nav>
+    </header>
+    <section class="car-details">
+        <img id="car-image" src="default" alt="Car">
+        <h2 id="car-name"></h2>
+        <p id="car-price"></p>
+        <p id="car-fuel"></p>
+        <p id="car-seats"></p>
+        <button>Book Now</button>
+    </section>
+
+    <section class="car-details">
+        <img src="assets/car1.jpg" alt="Car">
+        <h2>Toyota Camry</h2>
+        <p>Price: ₹10000/day</p>
+        <p>Fuel Type: Petrol</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car2.jpg" alt="Car">
+        <h2>BMW X5</h2>
+        <p>Price: ₹15000/day</p>
+        <p>Fuel Type: Diesel</p>
+        <p>Seats: 7</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car3.jpg" alt="Car">
+        <h2>Mercedes Benz</h2>
+        <p>Price: ₹20000/day</p>
+        <p>Fuel Type: Petrol</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car4.jpg" alt="Car">
+        <h2>Hyundai Creta</h2>
+        <p>Price: ₹6500/day</p>
+        <p>Fuel Type: Diesel</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car5.jpg" alt="Car">
+        <h2>Baleno</h2>
+        <p>Price: ₹5000/day</p>
+        <p>Fuel Type: Petrol</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car6.jpg" alt="Car">
+        <h2>Hyundai i20</h2>
+        <p>Price: ₹6000/day</p>
+        <p>Fuel Type: Diesel</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car7.jpg" alt="Car">
+        <h2>Maruti Suzuki Swift</h2>
+        <p>Price: ₹4500/day</p>
+        <p>Fuel Type: Petrol</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car8.jpg" alt="Car">
+        <h2>Toyata Fortuner</h2>
+        <p>Price: ₹9000/day</p>
+        <p>Fuel Type: Diesel</p>
+        <p>Seats: 7</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car9.jpg" alt="Car">
+        <h2>Hyundai Venue</h2>
+        <p>Price: ₹6000/day</p>
+        <p>Fuel Type: Petrol</p>
+        <p>Seats: 5</p>
+        <button>Book Now</button>
+    </section>
+    <section class="car-details">
+        <img src="assets/car10.jpg" alt="Car">
+        <h2>Toyota Innova</h2>
+        <p>Price: ₹8000/day</p>
+        <p>Fuel Type: Petrol</p>
+        <p>Seats: 7</p>
+        <button>Book Now</button>
+</section>
+<script>
+    const carData = JSON.parse(localStorage.getItem("selectedCar"));
+
+console.log("Retrieved Car Data:", carData);  // Debugging: Check if data is retrieved
+
+if (carData) {
+    document.getElementById("car-name").innerText = carData.name;
+    document.getElementById("car-price").innerText = "Price: ₹" + carData.price + "/day";
+    document.getElementById("car-fuel").innerText = "Fuel Type: " + carData.fuel;
+    document.getElementById("car-seats").innerText = "Seats: " + carData.seats;
+    document.getElementById("car-image").src = carData.image;
+} else {
+    console.log("No Car Found!");  // Debugging: Check if this runs
+    document.body.innerHTML = "<h2>No Car Selected</h2>";
+}
+
+</script>
+</body>
+</html>

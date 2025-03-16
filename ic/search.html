@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Cars</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Center search bar */
+        .search-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .search-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Center search results properly */
+        .search-results {
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            align-items: center;
+            height: 80vh; /* Adjusted for better vertical alignment */
+            width: 100%;
+        }
+
+        .car-text {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px; /* Space between text and image */
+        }
+
+        .car-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .car-image img {
+            width: 100%;
+            max-width: 300px; /* Adjust image size */
+            border-radius: 5px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Car Rentals & Leasing</h1>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cars.html">Garage</a>
+        </nav>
+    </header>
+
+    <section class="search-results">
+        <h1>Search Results</h1>
+        <h2>Showing results for: <strong id="search-term">"..."</strong></h2>
+
+        <div class="car-list" id="car-list">
+            <!-- Sample Cars (Will be filtered by JavaScript) -->
+            <div class="car" data-name="Toyota Camry">
+                <img src="assets/car1.jpg" alt="Toyota Camry">
+                <h3>Toyota Camry</h3>
+                <p>₹10000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="BMW X5">
+                <img src="assets/car2.jpg" alt="BMW X5">
+                <h3>BMW X5</h3>
+                <p>₹15000/day</p>
+                <button>Rent Now</button>
+                </div>
+            <div class="car" data-name="Mercedes Benz">
+                <img src="assets/car3.jpg" alt="Mercedes Benz">
+                <h3>Mercedes Benz</h3>
+                <p>₹20000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Hyundai Creta">
+                <img src="assets/car4.jpg" alt="Hyundai Creta">
+                <h3>Hyundai Creta</h3>
+                <p>₹6500/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Baleno">
+                <img src="assets/car5.jpg" alt="Baleno">
+                <h3>Baleno</h3>
+                <p>₹5000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Toyota Corolla">
+                <img src="assets/toyotacorolla.jpg" alt="Toyota Corolla">
+                <h3>Toyota Corolla</h3>
+                <p>$45/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Honda Accord">
+                <img src="assets/honda.jpg" alt="Honda Accord">
+                <h3>Honda Accord</h3>
+                <p>$55/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Hyundai i20">
+                <img src="assets/car6.jpg" alt="Hyundai i20">
+                <h3>Hyundai i20</h3>
+                <p>₹6000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Maruti Suzuki Swift">
+                <img src="assets/car7.jpg" alt="Maruti Suzuki Swift">
+                <h3>Maruti Suzuki Swift</h3>
+                <p>₹4500/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Toyota Fortuner">
+                <img src="assets/car8.jpg" alt="Toyota Fortuner">
+                <h3>Toyota Fortuner</h3>
+                <p>₹9000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Hyundai Venue">
+                <img src="assets/car9.jpg" alt="Hyundai Venue">
+                <h3>Hyundai Venue</h3>
+                <p>₹6000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class="car" data-name="Toyota Innova">
+                <img src="assets/car10.jpg" alt="Toyota Innova">
+                <h3>Toyota Innova</h3>
+                <p>₹8000/day</p>
+                <button>Rent Now</button>
+            </div>
+            <div class = "car" data-name="Toyota Prius">
+                <img src="assets/prius.jpg" alt="Toyota Prius">
+                <h3>Toyota Prius</h3>
+                <p>$50/day</p>
+                <button>Rent Now</button>
+        </div>
+
+        <!-- Message if no cars match -->
+        <p id="no-results" style="display: none; color: red;">No cars found for this search.</p>
+    </section>
+
+    <script>
+        // Get the search query from the URL
+        const params = new URLSearchParams(window.location.search);
+        const searchQuery = params.get("query") ? params.get("query").trim().toLowerCase() : "";
+
+        // Get elements
+        const searchTermElement = document.getElementById("search-term");
+        const carList = document.getElementById("car-list");
+        const noResultsMessage = document.getElementById("no-results");
+        const cars = document.querySelectorAll(".car");
+
+        // If search is empty, show "No results" and hide cars
+        if (!searchQuery) {
+            searchTermElement.textContent = `"No search term entered"`;
+            carList.style.display = "none";
+            noResultsMessage.style.display = "block";
+        } else {
+            searchTermElement.textContent = `"${searchQuery}"`;
+            let found = false;
+
+            // Loop through cars and hide those that don't match
+            cars.forEach(car => {
+                const carName = car.getAttribute("data-name").toLowerCase();
+                if (!carName.includes(searchQuery)) {
+                    car.style.display = "none"; // Hide non-matching cars
+                } else {
+                    car.style.display = "block"; // Show matching cars
+                    found = true;
+                }
+            });
+
+            // Show "No results" if no matching cars are found
+            if (!found) {
+                noResultsMessage.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
